@@ -1,6 +1,6 @@
-﻿
+
 #$MalFile almacena el valor del nombre del archivo o cadena que desees buscar, 
-# no es necesario colocar wildcard (*) ya que por default se utilizará al inicio y final en la búsqueda.
+# no es necesario colocar wildcard (*) al inicio y final de la cadena, solo colocar de manera intermedia si es necesario ej: malware*test
 
 $MalFile = Read-Host "Coloca string/nombre de archivo que de deseas buscar"
 
@@ -17,3 +17,5 @@ $Path = Read-Host "Coloca la ruta desde la cual deseas realizar la búsqueda"
 # El parámetro "-Force" puede omitirse en caso de que no se requiera buscar archivos ocultos.
 
 Get-Childitem –Path $Path\* -Include *$MalFile* -Exclude *$Excepcion -Recurse -ErrorAction SilentlyContinue -Force
+
+# Mayor detalle https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.2
